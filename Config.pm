@@ -306,7 +306,19 @@ use Encode;
 },     
 },
 };
-	  
+	
+	    $Self->{TicketAcl}->{'ACL-ZablokUhetka<->SecondQueueMinivega'} = {
+        Properties => {
+			Ticket => {
+				Type => [ ^decode_utf8('Запрос::Заблокированная учётная запись')] }},
+ # return possible options (white list)
+        PossibleNot => {
+ # possible ticket options (white list)
+			Ticket => { 
+				Queue => [decode_utf8('2-я линия Минивега Доступ')],     
+},
+},
+};
     #----------------------------------------------------- #
     # $Self->{SessionUseCookie} = 0;
     $Self->{CheckMXRecord} = 0;
